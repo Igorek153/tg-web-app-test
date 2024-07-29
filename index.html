@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clicker Game</title>
+  <style>
+      @keyframes gradient {
+          0% {
+              background-position: 0% 50%;
+          }
+          50% {
+              background-position: 100% 50%;
+          }
+          100% {
+              background-position: 0% 50%;
+          }
+      }
+      body {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          margin: 0;
+          font-family: Arial, sans-serif;
+          background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+          background-size: 400% 400%;
+          animation: gradient 15s ease infinite;
+      }
+      .container {
+          text-align: center;
+      }
+      .image-container {
+          display: inline-block;
+          position: relative;
+          cursor: pointer;
+
+      }
+      .image-container:hover {
+          opacity: 0.9;
+      }
+      .image-container:active {
+          transform: scale(1.02);
+          opacity: 0.8;
+      }
+      .image-container img {
+          max-height: 150px;
+          -webkit-user-drag: none;
+          -khtml-user-drag: none;
+          -moz-user-drag: none;
+          -o-user-drag: none;
+          user-drag: none;
+          -webkit-user-select: none;
+          -khtml-user-select: none;
+          -moz-user-select: none;
+          -o-user-select: none;
+          user-select: none;
+          transition: transform 0.2s;
+      }
+      .score {
+          color: white;
+          border: 2px solid white;
+          border-radius: 18px;
+          padding: 4px 10px;
+          margin-top: 20px;
+          font-size: 24px;
+      }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="image-container">
+    <img src="./emerald.png" alt="Click me!" id="clickable-image">
+  </div>
+  <div class="score">Score: <span id="score">0</span></div>
+</div>
+
+<script>
+  let score = 0;
+  const image = document.getElementById('clickable-image');
+  const scoreDisplay = document.getElementById('score');
+
+  image.addEventListener('click', function(event) {
+    score++;
+    scoreDisplay.textContent = score;
+  });
+</script>
+</body>
+</html>
